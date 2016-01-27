@@ -77,7 +77,7 @@ void initTimers(){
     TIM_OC3Init(TIM1, &TIM_OCInitStructure);
     TIM_OC3PreloadConfig(TIM1, TIM_OCPreload_Enable);
     TIM_OC2Init(TIM1, &TIM_OCInitStructure);
-    TIM_OC3PreloadConfig(TIM1, TIM_OCPreload_Enable);
+    TIM_OC2PreloadConfig(TIM1, TIM_OCPreload_Enable);
     
     //Setting up timer 3, channel 1 (D3) and 2 (D2)
     TIM_OC1Init(TIM3, &TIM_OCInitStructure);
