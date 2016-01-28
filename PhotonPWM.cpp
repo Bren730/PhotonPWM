@@ -6,6 +6,10 @@
 
 #include "application.h"
 #include "PhotonPWM.h"
+#include "math.h"
+
+TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure; //Time base structure for timer 3
+TIM_OCInitTypeDef       TIM_OCInitStructure;   //Output compare init structure for PWM
 
 PhotonPWM::PhotonPWM()
 {
@@ -13,10 +17,6 @@ PhotonPWM::PhotonPWM()
 }
 
 void PhotonPWM::initTimers(){
-
-	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure; //Time base structure for timer 3
-	NVIC_InitTypeDef        NVIC_InitStructure;    //Nested Vector Interrupt Controller Initialisation Structure
-	TIM_OCInitTypeDef       TIM_OCInitStructure;   //Output compare init structure for PWM
 
 	//Without this setup 16-Bit output does not work
 	pinMode(D0, OUTPUT);
