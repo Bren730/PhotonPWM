@@ -18,6 +18,7 @@ class PhotonPWM {
 		PhotonPWM();
 		void initTimers();
 		void analogWrite16(byte pin, unsigned int dutyCycle);
+		void analogWrite16GC(byte pin, unsigned int dutyCycle);
 };
 
 #endif

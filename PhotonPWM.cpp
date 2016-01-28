@@ -128,3 +128,13 @@ void PhotonPWM::analogWrite16(byte pin, unsigned int dutyCycle){
 	}
 
 }
+
+void PhotonPWM::analogWrite16GC(byte pin, unsigned int dutyCycle){
+    
+    float gamma   = 2.8; // Correction factor
+    int   max_in  = 65535, // Top end of INPUT range
+          max_out = 65535; // Top end of OUTPUT range
+          
+    unsigned int val = (int)(pow((float)dutyCycle / (float)max_in, gamma) * max_out + 0.5);
+    analogWrite16(pin, val);
+}
