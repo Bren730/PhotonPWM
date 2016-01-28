@@ -35,32 +35,12 @@ void PhotonPWM::initTimers(){
 	analogWrite(TX, 0);
 	analogWrite(RX, 0);
 
-	//GPIO clocks enable
-	//Initialise GPIO for PWM function
-	GPIO_InitTypeDef        GPIO_InitStructure;    //GPIO Initialisation Structure
-
 	//Sets the AHB clock to the system clock (prescaler to 1), then sets PCLK1 and PCLK2 (APB1 and APB2) to the AHB clock (prescalers to 1), and thus to the system clock.
 	//These lines of code make sure the PWM signals are as fast as possible and equal to each other
 	//http://www.han-ese.nl/STM32/stm32f0stdlibrary/html/group___r_c_c___group2.html
 	RCC_HCLKConfig(RCC_SYSCLK_Div1);
 	RCC_PCLK1Config(RCC_HCLK_Div1);
 	RCC_PCLK2Config(RCC_HCLK_Div1);
-
-	//Enable GPIO
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
-
-	//Initialize D0/PB7, Alternative Function, 100Mhz, Output, Push-pull
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
-
-	GPIO_Init(GPIOB, &GPIO_InitStructure); // Note the GPIOB 
-	GPIO_Init(GPIOA, &GPIO_InitStructure); // Note the GPIOA
-	// Consult https://docs.particle.io/datasheets/photon-datasheet/#pin-out-diagrams for pinout, pay attention to the STM32 Pin column, ie PB7
-	// the 'B' in PB7 means you should use the 'B' GPIO, GPIOB.  PA4 would use GPIOA.
 
 	//The APB1Periph identifies the timer peripheral (clock). Note that TIM1 has APB2 as an identifier
 	//http://www.han-ese.nl/STM32/stm32f2stdlibrary/html/group___r_c_c.html#gaee7cc5d73af7fe1986fceff8afd3973e
