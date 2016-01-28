@@ -5,10 +5,10 @@ To use the library, copy the PhotonPWM.h and PhotonPWM.cpp into your project fol
 
 | Timer | Pins |
 |-|-|
-| TIM1 | TX, RX
-| TIM3 | D2, D3
-| TIM4 | D0, D1
-| TIM5 | WKP
+| TIM1 | TX, RX |
+| TIM3 | D2, D3 |
+| TIM4 | D0, D1 |
+| TIM5 | WKP	|
 
 Now just call [name you want to use].analogWrite16(pin, value); and it should work, if the pin is initialised.
 
