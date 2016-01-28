@@ -14,6 +14,6 @@ Now just call [name you want to use].analogWrite16(pin, value); and it should wo
 
 Note that this branch is the development branch and as such likely contains bugs.
 
-Known issues:
+##Known issues:##
 
--Timer initialisation screws with the normal analogWrite. Initialising only one timer works, but breaks PWM output on all other pins
+*Timer initialisation screws with the normal analogWrite. Initialising only one timer works, but breaks PWM output on all other pins
