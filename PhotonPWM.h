@@ -14,10 +14,18 @@
 #endif
 
 class PhotonPWM {
+    
 	public:
+	
 		PhotonPWM();
-		void initTimers();
+		void initTimer(byte timerToInitiate);
+		void initAllTimers();
 		void analogWrite16(byte pin, unsigned int dutyCycle);
+		void analogWrite16GC(byte pin, unsigned int dutyCycle);
+		bool timerInitiated(byte timerNr);
+		
+	private:
+	    bool timersInitiated[5] = {false, false, false, false, false};
 };
 
 #endif
